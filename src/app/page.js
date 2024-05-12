@@ -8,10 +8,10 @@ export default function Home() {
   <>
     <main className="bg-accueil bg-cover">
       <section className=" bg-gray-800 bg-opacity-80 flex justify-center items-center">
-        <article className="ml-8 md:ml-14 xl:ml-2 h-[60vh] xl:h-[40%] w-[85%] xl:w-[60%] flex flex-col xl:flex-row gap-12 justify-between items-center ">
+        <article className="ml-8 md:ml-14 xl:ml-2 h-[60vh] xl:h-[40%] 3xl:h-[30%] w-[85%] xl:w-[60%] flex flex-col xl:flex-row gap-12 justify-between items-center border ">
 
           <div className="h-full w-[90%] xl:w-[60%] flex flex-col gap-4 ">
-            <div className="h-[70%]">
+            <div className="h-[70%] 3xl:h-[60%]">
               <h2 className="text-[7rem] 3xl:text-[8rem] text-cyan-300 m-0  leading-snug whitespace-nowrap">KESS<span className=" ml-2  text-4xl text-cyan-700">T O N I G H T ?</span></h2>
               <h2 className="text-[7rem] 3xl:text-[8rem] text-cyan-300 text-end m-0 leading-10">KONMAT</h2>
             </div>
