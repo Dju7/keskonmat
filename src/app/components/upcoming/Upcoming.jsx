@@ -18,7 +18,7 @@ export default async function Upcoming() {
      <div className="w-full h-full grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 py-4 gap-2 px-4">
       {movies.map((movie)=> (
         
-        <Link key={movie.id} href={`http://https://keskonmat.vercel.app/${movie.id}`}>
+        <Link key={movie.id} href={`https://keskonmat.vercel.app/${movie.id}`}>
         <Image key={movie.id}
          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
          alt={movie.title}
