@@ -17,7 +17,7 @@ export default async function Upcoming() {
      <div className="w-full h-full grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 py-4 gap-2 px-4">
       {series.map((serie)=> (
         
-        <Link key={serie.id} href={`https://localhost:3000/${serie.id}`}>
+        <Link key={serie.id} href={`http://kesskonmat.jcros-web.fr/${serie.id}`}>
         <Image key={serie.id}
          src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
          alt={serie.title}

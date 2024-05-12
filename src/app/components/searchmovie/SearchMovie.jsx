@@ -3,17 +3,23 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 const MovieCard = ({ movie }) => (
-  <div key={movie.id} className="mb-8 w-full flex gap-8 text-white">
+  <div key={movie.id} className="mb-14 h-[950px] lg:h-[550px] w-full flex max-lg:flex-col gap-8 text-white ">
+    <div className='h-[60%] lg:h-full  w-full lg:w-[30%]'>
     <Image
       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
       alt={movie.title}
-      width={350}
-      height={350}
-    /><div className='h-[250px] w-[50%]'>
-        <h2 className="text-6xl mb-4 text-cyan-300">{movie.title}</h2>
-        <p className="text-2xl 3xl:text-4xl flex gap-4 mb-6 items-center text-cyan-300"> <span  className="text-3xl 3xl:text-5xl text-white underline">Release Date:</span> {movie.release_date}</p>
-        <p className="text-2xl 3xl:text-4xl flex gap-4 mb-6 items-center text-cyan-300"> <span  className="text-3xl text-white 3xl:text-5xl underline">Vote average:</span> {movie.vote_average}</p>
-        <p className="text-2xl 3xl:text-4xl flex gap-4 mb-6 items-center text-cyan-300"> {movie.overview}</p>
+      width={360}
+      height={360}
+    />
+    </div>
+    <div className='h-[40%] lg:h-full w-full lg:w-[80%] flex flex-col'>
+    <div className='h-[250px] w-full'>
+        <h2 className="text-5xl lg:text-6xl mb-4 text-cyan-300">{movie.title}</h2>
+        <p className="text-xl lg:text-2xl 3xl:text-4xl flex gap-4 mb-6 items-center text-cyan-300"> <span  className="text-xl lg:text-2xl 3xl:text-5xl text-white underline">Release Date:</span> {movie.release_date}</p>
+        <p className="text-xl lg:text-2xl 3xl:text-4xl flex gap-4 mb-6 items-center text-cyan-300"> <span  className="text-xl lg:text-2xl text-white 3xl:text-5xl underline">Vote average:</span> {movie.vote_average}</p>
+        <p className="text-xl lg:text-2xl text-white 3xl:text-5xl underline">Synopsis:</p>
+        <p className="mt-2 lg:mt-6 text-xl lg:text-2xl 3xl:text-4xl flex gap-4 mb-6 items-center text-cyan-300"> {movie.overview}</p>
+    </div>
     </div>
   </div>
 );
@@ -54,6 +60,10 @@ export default function Search() {
     };
 
     const handleSearch = () => {
+      if (!input && !genre && !year) {
+        alert('Pas de titre ? pas de genre ? ... entrer au moins un terme de recherche')
+      }
+
         setGenre('');
         setYear('');
         setMovies([]);
@@ -71,8 +81,9 @@ export default function Search() {
 
   return (
     <>
-      <div className="mt-[200px] h-[30%] w-full flex flex-col items-center">
-      <div className="flex items-center text-white mb-2">
+    <div className=" z-50 mt-4 h-[90vh] w-full flex flex-col items-center">
+        <div className='h-[30vh] w-full flex flex-col justify-center items-center'>
+            <div className="h-10 flex items-center text-white mb-2">
                 <label className="mr-4">
                 <input
                     className='m-1'
@@ -94,16 +105,16 @@ export default function Search() {
                 TV
                 </label>
             </div>
-        <label htmlFor="movie-search" className="text-cyan-300 mb-4 text-3xl">
+           <label htmlFor="movie-search" className="text-cyan-300 mb-4 text-3xl">
           CHERCHER UN FILM OU UNE SERIE
-        </label>
+           </label>
         <div className='flex w-full gap-6 justify-center items-center'>
            
             <input
             type="search"
             className="text-grayBlack w-[40%] mb-2 h-10 p-4 rounded-xl mr-2 outline-none"
             value={input}
-            placeholder='Enter a title'
+            placeholder='Enter a title or a keyword'
             onChange={(e) => setInput(e.target.value)}
             />
         </div>
@@ -111,7 +122,7 @@ export default function Search() {
           <select
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
-            className="text-grayBlack w-[15%] mb-2 h-8 p-2 rounded-xl mr-2"
+            className="text-grayBlack w-[15%] mb-2 h-10 p-2 rounded-xl mr-2"
           >
             <option value="">Genre</option>
             <option value="28 | 10759">Action & Aventure</option>
@@ -129,7 +140,7 @@ export default function Search() {
           <select
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="text-grayBlack w-[15%] mb-2 h-8 p-2 rounded-xl mr-2"
+            className="text-grayBlack w-[15%] mb-2 h-10 p-2 rounded-xl mr-2"
           >
             <option value="">Years</option>
             {yearOptions}
@@ -138,16 +149,17 @@ export default function Search() {
         </div>
         <button
           onClick={handleSearch}
-          className="bg-cyan-300 mt-2 w-32 h-8 rounded-full hover:text-tertiary shadow-xl shadow-teal-700"
+          className="bg-cyan-300 border border-cyan-300 mt-2 w-32 h-8 rounded-full hover:text-tertiary shadow-xl shadow-teal-700 hover:bg-transparent hover:text-cyan-300"
         >
           CHERCHER
         </button>
       </div>
-      <div className="min-h-[70vh] w-full p-8">
+      <div className="h-[70vh] w-[90%] lg:w-[80%] ml-4 lg:ml-20 p-8 mt-8 ">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
+    </div>
     </>
   );
 }

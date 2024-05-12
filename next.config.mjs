@@ -1,20 +1,12 @@
 const nextConfig = {
     images: {
       dangerouslyAllowSVG: true,
+      domains: [],
       remotePatterns: [
         {
           protocol: 'https',
           hostname: 'image.tmdb.org',
           
-        },
-        {
-          protocol: 'https',
-          hostname: 'www.lepoint.fr',
-          
-        },
-        {
-          protocol: 'https',
-          hostname: 'api.dicebear.com',
         },
       ],
       },
