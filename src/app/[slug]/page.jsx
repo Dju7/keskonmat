@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { FC } from "react";
 
 
 const Page= async ({ params }) => {
   try {
     const movieDetail = await fetch(
-      `https://api.themoviedb.org/3/movie/${params.slug}?api_key=3d4bb99f3e9d96edb18d9eff6c7c7b79`
+      `https://api.themoviedb.org/3/find/${params.slug}?api_key=3d4bb99f3e9d96edb18d9eff6c7c7b79`,
+      
     );
 
     if (!movieDetail.ok) {

@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 
 const MovieCard = ({ movie }) => (
-  <div key={movie.id} className="mb-14 h-[950px] lg:h-[550px] w-full flex max-lg:flex-col gap-8 text-white ">
-    <div className='h-[60%] lg:h-full  w-full lg:w-[30%]'>
+  <div key={movie.id} className="mb-14 h-[950px] lg:h-[550px] w-full flex max-lg:flex-col gap-8 text-white mb-4 ">
+    <div className='h-[50%] md:h-[60%] lg:h-full  w-full lg:w-[30%]'>
     <Image
       src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
       alt={movie.title}
@@ -12,7 +12,7 @@ const MovieCard = ({ movie }) => (
       height={360}
     />
     </div>
-    <div className='h-[40%] lg:h-full w-full lg:w-[80%] flex flex-col'>
+    <div className='h-[50%] md:h-[40%] lg:h-full w-full lg:w-[80%] flex flex-col'>
     <div className='h-[250px] w-full'>
         <h2 className="text-5xl lg:text-6xl mb-4 text-cyan-300">{movie.title}</h2>
         <p className="text-xl lg:text-2xl 3xl:text-4xl flex gap-4 mb-6 items-center text-cyan-300"> <span  className="text-xl lg:text-2xl 3xl:text-5xl text-white underline">Release Date:</span> {movie.release_date}</p>
@@ -83,7 +83,7 @@ export default function Search() {
     <>
     <div className=" z-50 mt-4 h-[90vh] w-full flex flex-col items-center">
         <div className='h-[30vh] w-full flex flex-col justify-center items-center'>
-            <div className="h-10 flex items-center text-white mb-2">
+            <div className="h-10 flex items-center text-2xl text-red-300 mb-2">
                 <label className="mr-4">
                 <input
                     className='m-1'
@@ -105,14 +105,14 @@ export default function Search() {
                 TV
                 </label>
             </div>
-           <label htmlFor="movie-search" className="text-cyan-300 mb-4 text-3xl">
+           <label htmlFor="movie-search" className="text-cyan-300 mb-4 text-lg lg:text-3xl">
           CHERCHER UN FILM OU UNE SERIE
            </label>
         <div className='flex w-full gap-6 justify-center items-center'>
            
             <input
             type="search"
-            className="text-grayBlack w-[40%] mb-2 h-10 p-4 rounded-xl mr-2 outline-none"
+            className="text-grayBlack w-[60%] lg:w-[40%] mb-2 h-10 p-4 rounded-xl mr-2 outline-none"
             value={input}
             placeholder='Enter a title or a keyword'
             onChange={(e) => setInput(e.target.value)}
@@ -122,7 +122,7 @@ export default function Search() {
           <select
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
-            className="text-grayBlack w-[15%] mb-2 h-10 p-2 rounded-xl mr-2"
+            className="text-black w-[25%] ld:w-[15%] mb-2 h-10 p-2 rounded-xl mr-2"
           >
             <option value="">Genre</option>
             <option value="28 | 10759">Action & Aventure</option>
@@ -140,7 +140,7 @@ export default function Search() {
           <select
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="text-grayBlack w-[15%] mb-2 h-10 p-2 rounded-xl mr-2"
+            className="text-black w-[25%] ld:w-[15%] mb-2 h-10 p-2 rounded-xl mr-2"
           >
             <option value="">Years</option>
             {yearOptions}
