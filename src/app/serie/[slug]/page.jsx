@@ -13,6 +13,7 @@ const Page= async ({ params }) => {
     }
 
     const movieData = await movieDetail.json();
+    console.log(movieData)
 
     return (
     <main className="relative z-0 w-full bg-salle bg-cover  text-white flex justify-center items-center">
