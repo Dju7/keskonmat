@@ -8,8 +8,8 @@ import FamilySerie from '../components/family-serie/FamilySerie'
 export default function page() {
   return (
     <main className='relative z-0'>
-      <h2 className='absolute top-0 left-20 md:left-32 text-4xl md:text-7xl 3xl:text-9xl text-white opacity-30 z-1'>S E R I E</h2>
-      <h2 className='absolute top-2 left-20 md:left-32 text-4xl md:text-7xl 3xl:text-9xl text-teal-800 opacity-30 z-10 hover:opacity-50'>S E R I E</h2>
+      <h2 className='absolute top-0 left-20 md:left-32  text-4xl md:text-7xl 3xl:text-9xl text-white opacity-30 z-1'>S E R I E</h2>
+      <h2 className='absolute top-2 left-20 md:left-32  text-4xl md:text-7xl 3xl:text-9xl text-teal-800 opacity-30 z-10 hover:opacity-50'>S E R I E</h2>
    <section id="action" className='z-20 bg-slate-900 flex justify-center items-center'>
       <div className='mt-4 ml-2 md:ml-32 w-[90%] h-[90%] flex flex-col gap-4 '>
         <div className='h-[5%] w-full flex justify-center items-center gap-2'>
